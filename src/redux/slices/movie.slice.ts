@@ -1,21 +1,25 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IMovie, IPage} from "../../interfaces";
 import {movieService} from "../../services";
+import {IQuery} from "../../interfaces";
+import {IParams} from "../../interfaces";
 
 interface IState {
     movies:IMovie[],
-    page: IPage
+    page: IPage,
+    params: IQuery
 }
 
 const initialState:IState = {
     movies: [],
-    page: {results: [], page: 0, total_results: 0, total_pages: 0}
+    page: {results: [], page: 0, total_results: 0, total_pages: 0},
+    params: {}
 }
 
-const getPage = createAsyncThunk<IPage,void>(
+const getPage = createAsyncThunk<IPage, IParams>(
     'movieSlice/getAll',
-    async () => {
-        const {data} = await movieService.getPage();
+    async ({params}) => {
+        const {data} = await movieService.getPage(params);
         return data
     }
 )
