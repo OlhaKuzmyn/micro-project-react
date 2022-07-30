@@ -1,18 +1,21 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useMemo} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
-import {useQuery} from "../../hooks/query";
-import {IQuery} from "../../interfaces";
+import {useQuery, useQueryParams} from "../../hooks/query";
+
 
 const Movies: FC = () => {
     const {movies} = useAppSelector(state => state.movieReducer);
     const dispatch = useAppDispatch();
-    const query = useQuery()
-    console.log(query.get('page'));
+    // const query = useQuery()
+    const queryParams = useQueryParams()
+    // const queryParams = useMemo(() => useQueryParams(query), [query])
+    console.log("qp", queryParams);
+
     useEffect(()=>{
-        // @ts-ignore
-        dispatch(movieActions.getPage(query))
-    },[dispatch])
+        dispatch(movieActions.getPage(queryParams))
+    },[dispatch //, queryParams - creates loop
+    ])
     return (
         <div>
             {movies.map(movie=><div>{movie.original_title}</div>)}

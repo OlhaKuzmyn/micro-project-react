@@ -16,9 +16,9 @@ const initialState:IState = {
     params: {}
 }
 
-const getPage = createAsyncThunk<IPage, IParams>(
+const getPage = createAsyncThunk<IPage, IQuery>(
     'movieSlice/getAll',
-    async ({params}) => {
+    async (params) => {
         const {data} = await movieService.getPage(params);
         return data
     }
