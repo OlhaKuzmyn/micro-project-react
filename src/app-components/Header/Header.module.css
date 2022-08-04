@@ -6,7 +6,6 @@
     align-items: center;
     padding: 0 50px;
     box-sizing: border-box;
-    max-width: 1376px;
 
 }
 .menulink {
@@ -14,7 +13,7 @@
     color: var(--light-color);
 }
 
-.user-box {
+.userBox {
     background: var(--red-color);
     box-sizing: border-box;
     border-radius: 50%;

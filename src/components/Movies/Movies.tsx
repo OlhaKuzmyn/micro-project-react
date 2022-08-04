@@ -1,8 +1,10 @@
 import React, {FC, useEffect} from 'react';
 import {useAppDispatch, useAppSelector, useQueryParams} from "../../hooks";
 import {movieActions} from "../../redux";
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
+import {Movie} from "../Movie/Movie";
 
+import css from "./Movies.module.css"
 
 const Movies: FC = () => {
 
@@ -15,12 +17,6 @@ const Movies: FC = () => {
     const location = useLocation()
     // console.log(location);
 
-    const searchParams = new URLSearchParams(location.search)
-
-    let pageNum = searchParams.get('page') ? +searchParams.get('page')! : 1
-
-    let withGenres = searchParams.get('with_genres')? searchParams.get('with_genres')! : undefined
-
     useEffect(()=>{
         dispatch(movieActions.getPage(queryParams))
     },[dispatch, location])
@@ -32,12 +28,9 @@ const Movies: FC = () => {
     // }
 
     return (
-        <div>
-            {movies.map(movie=><div>{movie.original_title}</div>)}
+        <div className={css.container}>
+            {movies.map(movie=><Movie key={movie.id} movie={movie}/>)}
             {/*<button onClick={nextPage}>Next</button>*/}
-            <Link to={{search: `page=${pageNum!+=1}${withGenres ? `&with_genres=${withGenres}` : ''}`}} >
-                <button>Next</button>
-            </Link>
         </div>
     );
 };

@@ -1,23 +1,24 @@
 import React, {FC} from 'react';
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, Navigate} from "react-router-dom";
 
 import './App.css';
-import {Movies} from "./components";
-import Header from "./app-components/Header";
+import {Search} from "./components";
+import {MainLayout} from "./layouts";
+import {MoviesPage} from "./pages";
 
 
 const App: FC = () => {
 
   return (
-      // <Routes>
-      //     <Route>
-      //
-      //     </Route>
-      // </Routes>
-      <div>
-      <Header/>
-      <Movies/>
-      </div>
+      <Routes>
+          <Route path={'/'} element={<MainLayout/>}>
+              <Route index element={<Navigate to={'movies'}/>} />
+              <Route path={'movies'} element={<MoviesPage/>} />
+              <Route path={'search'} element={<Search/>} />
+
+          </Route>
+      </Routes>
+
   );
 }
 

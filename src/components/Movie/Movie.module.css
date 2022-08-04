@@ -1,0 +1,24 @@
+.movieContainer {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 270px;
+    height: 450px;
+    border: solid 1px var(--red-color);
+    border-radius: 4px;
+    cursor: pointer
+}
+
+.movieContainer:hover {
+    background-color: rgba(75, 75, 75, 0.4);
+}
+
+.poster {
+    width: 250px;
+    height: 375px
+}
+
+
+.title {
+    text-align: center;
+    color: var(--txt-color);
+}
