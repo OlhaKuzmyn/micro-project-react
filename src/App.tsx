@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom";
 
 import './App.css';
 import {Movies} from "./components";
+import Header from "./app-components/Header";
 
 
 const App: FC = () => {
@@ -13,7 +14,10 @@ const App: FC = () => {
       //
       //     </Route>
       // </Routes>
+      <div>
+      <Header/>
       <Movies/>
+      </div>
   );
 }
 

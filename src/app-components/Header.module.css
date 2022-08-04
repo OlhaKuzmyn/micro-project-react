@@ -1,0 +1,50 @@
+.menu {
+    background: var(--dark-red-color);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+    max-width: 1376px;
+
+}
+.menulink {
+    text-decoration: none;
+    color: var(--light-color);
+}
+
+.user-box {
+    background: var(--red-color);
+    box-sizing: border-box;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    align-content: center;
+}
+.username {
+    margin: 13px 0;
+    text-align: center;
+    color: var(--light-color);
+}
+
+.themebtn {
+    height: 35px;
+    width: 60px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    background: transparent;
+    color: var(--txt-color);
+    border: var(--txt-color) solid 1px;
+    cursor: pointer;
+}
+
+.rightside {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.active {
+    color: var(--red-color);
+}
