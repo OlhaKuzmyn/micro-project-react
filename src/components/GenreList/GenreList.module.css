@@ -1,0 +1,20 @@
+.genre-box {
+    text-align: center;
+    box-sizing: border-box;
+    max-height: 70px;
+    margin: 5px 0;
+    padding: 10px 10px;
+    border-bottom: solid 2px var(--red-color);
+    border-top: solid 2px var(--red-color);
+    max-width: 1376px;
+}
+.genrename {
+    text-decoration: none;
+    color: var(--txt-color);
+    padding: 5px 5px;
+}
+
+
+.active {
+    color: var(--red-color);
+}

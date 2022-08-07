@@ -1,12 +1,14 @@
 import {axiosService, Res} from "./axios.service";
-import {IGenre, IMovie, IPage} from "../interfaces";
+import {IGenresList, IMovie, IPage} from "../interfaces";
 import {urls} from "../constants";
 import {IQuery} from "../interfaces";
 
 const movieService = {
-    getPage: (params: IQuery):Res<IPage> => axiosService.get(urls.moviesPage, {params: params}),
+    getMovies: (params: IQuery):Res<IPage> => axiosService.get(urls.movies, {params: params}),
     getMovie: (id:number):Res<IMovie> => axiosService.get(`${urls.movieDetails}/${id}`),
-    // getGenreList: (): Res<IGenre[]>
+    getGenreList: (): Res<IGenresList> => axiosService.get(urls.genreList),
+    getSearchMovies: (params: IQuery):Res<IPage> => axiosService.get(urls.search, {params: params}),
+
 
 }
 

@@ -18,7 +18,7 @@ const Movies: FC = () => {
     // console.log(location);
 
     useEffect(()=>{
-        dispatch(movieActions.getPage(queryParams))
+        dispatch(movieActions.getMovies(queryParams))
     },[dispatch, location])
 
     // const nextPage = () => {

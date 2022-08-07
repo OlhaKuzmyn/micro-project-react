@@ -1,0 +1,64 @@
+.form {
+    color: var(--txt-color);
+    display: flex;
+    column-gap: 20px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px;
+    align-items: center;
+}
+
+.results {
+    padding-left: 20px;
+
+}
+
+.result {
+    margin-bottom: 5px;
+    color: var(--txt-color);
+    cursor: pointer;
+}
+
+.result:hover{
+    color: var(--red-color);
+}
+
+.pages {
+    box-sizing: border-box;
+    border-top: solid 2px var(--red-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px 20px;
+}
+.btn {
+    background: var(--dark-red-color);
+    color: var(--light-color);
+    box-sizing: border-box;
+    border-radius: 2px;
+    width: 70px;
+    height: 30PX;
+    border: none;
+    cursor: pointer;
+
+}
+
+.btnPage:hover{
+    background: var(--red-color);
+    color: black;
+}
+.btnPage:disabled {
+    background: #3b3737;
+    color: var(--red-color);
+    cursor: default;
+}
+
+
+.pages > div > p {
+    color: var(--txt-color);
+}
+
+.input {
+    background: #3b3737;
+    color: var(--light-color);
+}
