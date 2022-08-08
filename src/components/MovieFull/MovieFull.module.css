@@ -1,0 +1,36 @@
+.bgimg {
+    padding-top: 2000px;
+    max-width: 1376px;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+}
+.bgtext {
+    position: absolute;
+    color: var(--light-color);
+    box-sizing: border-box;
+    border: 1px solid var(--light-color);
+    top: 120%;
+    left: 50%;
+    padding: 20px;
+    text-align: center;
+    z-index: 2;
+    width: 80%;
+    background-color: rgba(0,0,0, 0.4);
+    transform: translate(-50%, -50%);
+}
+
+.innertxt {
+    color: var(--light-color);
+    padding-left: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--light-color);
+}

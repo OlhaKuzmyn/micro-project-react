@@ -25,9 +25,7 @@ const Header :FC = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <GenreList/>
-            </div>
+            <GenreList/>
         </div>
     )
 };

@@ -10,6 +10,7 @@ const SearchPage: FC = () => {
     const {register, reset, handleSubmit, formState: {errors}} = useForm({mode: "onTouched"})
 
     const location = useLocation()
+    console.log(location);
     const searchParams = new URLSearchParams(location.search)
 
     const {totalPages} = useAppSelector(state => state.movieReducer)

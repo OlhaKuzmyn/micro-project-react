@@ -3,8 +3,8 @@ import {Route, Routes, Navigate} from "react-router-dom";
 
 import './App.css';
 import {MainLayout} from "./layouts";
-import {MoviesPage} from "./pages";
-import {SearchPage} from "./pages/SearchPage/SearchPage";
+import {MovieFullPage, MoviesPage} from "./pages";
+import {SearchPage} from "./pages";
 
 
 const App: FC = () => {
@@ -15,6 +15,7 @@ const App: FC = () => {
               <Route index element={<Navigate to={'movies'}/>} />
               <Route path={'movies'} element={<MoviesPage/>} />
               <Route path={'search'} element={<SearchPage/>} />
+              <Route path={'movie/:id'} element={<MovieFullPage/>} />
 
           </Route>
       </Routes>

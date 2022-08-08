@@ -15,7 +15,7 @@ const GenreList: FC = () => {
 
     return (
         <div className={css.genreBox}>
-            {genreList.map(genre=><NavLink to={`/movies?with_genres=${genre.id}`} className={css.genrename}>{genre.name}</NavLink>)}
+            {genreList.map(genre=><NavLink key={genre.id} to={`/movies?with_genres=${genre.id}`} className={css.genrename} >{genre.name}</NavLink>)}
         </div>
     );
 };
