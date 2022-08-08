@@ -1,13 +1,19 @@
 import React, {FC} from 'react';
-import {Movies} from "../../components";
 import {Link, useLocation, useNavigate} from "react-router-dom";
+import {useForm} from "react-hook-form";
+import {joiResolver} from "@hookform/resolvers/joi";
+
+import {Movies} from "../../components";
+import {IQuery} from "../../interfaces";
+import {pageValidator} from "../../validators";
 
 import css from "./MoviesPage.module.css"
-import {useForm} from "react-hook-form";
-import {IQuery} from "../../interfaces";
 
 const MoviesPage: FC = () => {
-    const {register, reset, handleSubmit, formState: {errors}} = useForm({mode: "onTouched"})
+    const {register, handleSubmit, formState: {errors}} = useForm({
+        mode: "onTouched",
+        resolver: joiResolver(pageValidator)
+    })
 
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
@@ -35,6 +41,7 @@ const MoviesPage: FC = () => {
                 <div>
                     <form className={css.form} onSubmit={handleSubmit(pageSelect)}>
                         <div><label>Enter Page number: <input type="number" {...register('page')} className={css.input}/></label></div>
+                        {errors.page && <span>{errors.page.message}</span>}
                         <button className={css.btnPage}>Go to page</button>
                     </form>
                 </div>

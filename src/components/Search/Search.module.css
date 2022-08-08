@@ -6,3 +6,8 @@
     row-gap: 15px;
     justify-content: center;
 }
+
+.noResults {
+    color: var(--txt-color);
+    text-align: center;
+}

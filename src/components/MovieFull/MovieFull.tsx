@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
+
 import {IMovieFull} from "../../interfaces";
 import {imgUrls} from "../../constants";
-
 
 import css from "./MovieFull.module.css"
 

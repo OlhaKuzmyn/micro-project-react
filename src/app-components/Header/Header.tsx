@@ -1,8 +1,9 @@
 import React, {FC} from 'react';
+import {NavLink} from "react-router-dom";
+
+import {GenreList} from "../../components";
 
 import css from './Header.module.css'
-import {NavLink} from "react-router-dom";
-import {GenreList} from "../../components";
 
 const Header :FC = () => {
     const theme = () => {

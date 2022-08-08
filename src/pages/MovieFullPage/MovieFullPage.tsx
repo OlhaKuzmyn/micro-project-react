@@ -1,6 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
-import {MovieFull} from "../../components";
 import {useParams} from "react-router-dom";
+
+import {MovieFull} from "../../components";
 import {movieService} from "../../services";
 import {IMovieFull} from "../../interfaces";
 

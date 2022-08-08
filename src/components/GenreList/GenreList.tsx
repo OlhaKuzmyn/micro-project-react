@@ -1,7 +1,8 @@
 import React, {FC, useEffect} from 'react';
+import {NavLink} from "react-router-dom";
+
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
-import {NavLink} from "react-router-dom";
 
 import css from "./GenreList.module.css"
 

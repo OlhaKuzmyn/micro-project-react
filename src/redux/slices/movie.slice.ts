@@ -1,20 +1,22 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {IGenre, IGenresList, IMovie, IPage} from "../../interfaces";
+
 import {movieService} from "../../services";
-import {IQuery} from "../../interfaces";
+import {IGenre, IGenresList, IMovie, IPage, IQuery} from "../../interfaces";
 
 interface IState {
     movies:IMovie[],
     searchmovies:IMovie[],
     totalPages: number,
     genreList: IGenre[],
+    noResults: boolean
 }
 
 const initialState:IState = {
     movies: [],
     searchmovies:[],
     totalPages: 1,
-    genreList: []
+    genreList: [],
+    noResults: false
 }
 
 const getMovies = createAsyncThunk<IPage, IQuery>(
@@ -46,6 +48,9 @@ const movieSlice = createSlice({
     name: 'movieSlice',
     initialState,
     reducers: {
+        setNoResults: (state, action) => {
+            state.noResults = action.payload.noResults
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -64,12 +69,13 @@ const movieSlice = createSlice({
     }
 })
 
-const {reducer: movieReducer} = movieSlice
+const {reducer: movieReducer, actions: {setNoResults}} = movieSlice
 
 const movieActions = {
     getMovies,
     getSearchMovies,
-    getGenreList
+    getGenreList,
+    setNoResults
 }
 
 export {

@@ -1,6 +1,7 @@
 import React, {FC, useEffect} from 'react';
-import {useAppDispatch, useAppSelector, useQueryParams} from "../../hooks";
 import {useLocation} from "react-router-dom";
+
+import {useAppDispatch, useAppSelector, useQueryParams} from "../../hooks";
 import {movieActions} from "../../redux";
 import {SearchMovie} from "../SearchMovie/SearchMovie";
 
@@ -8,7 +9,7 @@ import css from "./Search.module.css"
 
 const Search: FC = () => {
 
-    const {searchmovies} = useAppSelector(state => state.movieReducer);
+    const {searchmovies, noResults} = useAppSelector(state => state.movieReducer);
     const dispatch = useAppDispatch();
 
     const location = useLocation()
@@ -23,8 +24,14 @@ const Search: FC = () => {
     },[dispatch, location])
 
     return (
-        <div className={css.container}>
-            {searchmovies.map(movie=><SearchMovie key={movie.id} movie={movie}/>)}
+        <div>
+            {noResults ?
+                <h2 className={css.noResults}>No Results</h2>
+                :
+                <div className={css.container}>
+                    {searchmovies.map(movie => <SearchMovie key={movie.id} movie={movie}/>)}
+                </div>
+            }
         </div>
     );
 };

@@ -16,7 +16,6 @@ const App: FC = () => {
               <Route path={'movies'} element={<MoviesPage/>} />
               <Route path={'search'} element={<SearchPage/>} />
               <Route path={'movie/:id'} element={<MovieFullPage/>} />
-
           </Route>
       </Routes>
 

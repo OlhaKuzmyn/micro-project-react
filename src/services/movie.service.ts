@@ -1,7 +1,7 @@
 import {axiosService, Res} from "./axios.service";
-import {IGenresList, IMovieFull, IPage} from "../interfaces";
+
+import {IGenresList, IMovieFull, IPage, IQuery} from "../interfaces";
 import {urls} from "../constants";
-import {IQuery} from "../interfaces";
 
 const movieService = {
     getMovies: (params: IQuery):Res<IPage> => axiosService.get(urls.movies, {params: params}),
