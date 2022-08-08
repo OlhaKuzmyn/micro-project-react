@@ -15,17 +15,17 @@ const SearchForm: FC = () => {
         resolver: joiResolver(searchValidator)
     })
 
-    const {searchmovies} = useAppSelector(state => state.movieReducer);
-    const dispatch = useAppDispatch();
+    // const {searchmovies} = useAppSelector(state => state.movieReducer);
+    // const dispatch = useAppDispatch();
 
     const navigate = useNavigate()
 
     const search = (query: IQuery) => {
         navigate(`?query=${query.query}`)
         reset()
-        if (searchmovies.length === 0) {
-            dispatch(movieActions.setNoResults({noResults: true}))
-        }
+        // if (searchmovies.length === 0) {
+        //     dispatch(movieActions.setNoResults({noResults: true}))
+        // }
     }
 
     return (

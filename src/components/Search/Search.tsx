@@ -12,6 +12,8 @@ const Search: FC = () => {
     const {searchmovies, noResults} = useAppSelector(state => state.movieReducer);
     const dispatch = useAppDispatch();
 
+    // console.log(noResults);
+
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
     const queryParams = useQueryParams()
@@ -20,18 +22,24 @@ const Search: FC = () => {
     useEffect(()=>{
         if (searchParams.get('query')) {
             dispatch(movieActions.getSearchMovies(queryParams))
+            // if (searchmovies.length !== 0) {
+            //     dispatch(movieActions.setNoResults({noResults: false}))
+            // }
         }
     },[dispatch, location])
 
     return (
-        <div>
-            {noResults ?
-                <h2 className={css.noResults}>No Results</h2>
-                :
-                <div className={css.container}>
-                    {searchmovies.map(movie => <SearchMovie key={movie.id} movie={movie}/>)}
-                </div>
-            }
+        // <div>
+        //     {noResults ?
+        //         <h2 className={css.noResults}>No Results</h2>
+        //         :
+        //         <div className={css.container}>
+        //             {searchmovies.map(movie => <SearchMovie key={movie.id} movie={movie}/>)}
+        //         </div>
+        //     }
+        // </div>
+        <div className={css.container}>
+            {searchmovies.map(movie => <SearchMovie key={movie.id} movie={movie}/>)}
         </div>
     );
 };

@@ -36,8 +36,8 @@ const SearchPage: FC = () => {
                 <SearchForm/>
                 <Search/>
             </div>
-            {!noResults &&
-                <div>
+            {/*{!noResults &&*/}
+            {/*    <div>*/}
                     {query &&
                     <div className={css.pages}>
                         <Link to={{search: `query=${query}&page=${pageNum-1}`}} >
@@ -55,8 +55,8 @@ const SearchPage: FC = () => {
                         </Link>
                     </div>
                     }
-                </div>
-            }
+            {/*    </div>*/}
+            {/*}*/}
         </div>
     );
 };

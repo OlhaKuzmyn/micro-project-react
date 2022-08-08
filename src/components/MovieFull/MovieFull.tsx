@@ -29,7 +29,7 @@ const MovieFull: FC<IProps> = ({movie}) => {
                                 <ul>Genres:
                                     {movie.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
                                 </ul>
-                                <p>Homepage: <a href={movie.homepage}>{movie.homepage}</a></p>
+                                <p>Homepage: <a href={movie.homepage} className={css.link}>{movie.homepage}</a></p>
                                 <p>Language: {movie.original_language}</p>
                                 <p>Vote Average: {movie.vote_average}, with {movie.vote_count} people voted</p>
                             </div>
