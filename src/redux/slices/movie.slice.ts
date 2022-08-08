@@ -7,7 +7,7 @@ interface IState {
     movies:IMovie[],
     searchmovies:IMovie[],
     totalPages: number,
-    genreList: IGenre[]
+    genreList: IGenre[],
 }
 
 const initialState:IState = {

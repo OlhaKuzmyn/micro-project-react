@@ -8,9 +8,30 @@
     box-sizing: border-box;
 
 }
+
+.linkBox a[class='active']{
+    color: var(--red-color);
+}
+
 .menulink {
     text-decoration: none;
     color: var(--light-color);
+}
+
+/*.menu div a[class='active']{*/
+/*    color: var(--red-color);*/
+/*}*/
+/*.menulink[class='active']{*/
+/*    color: var(--red-color);*/
+/*}*/
+
+/*.menulink:active {*/
+/*    color: var(--red-color);*/
+
+/*}*/
+
+.active {
+    color: var(--red-color);
 }
 
 .userBox {
@@ -44,6 +65,3 @@
     align-items: center;
 }
 
-.active {
-    color: var(--red-color);
-}

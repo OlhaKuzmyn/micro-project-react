@@ -12,23 +12,30 @@ export interface IMovieFull extends IMovie {
     },
     budget: number,
     genres: IGenre[],
-    homepage: string,
+    homepage:string,
+
     imdb_id: string,
     original_language: string,
     overview: string,
     popularity: number,
     production_companies: [
         {
-            id: number,
-            logo_path: string,
-            name: string,
-            origin_country:string
+        id: number,
+        logo_path: string,
+        name: string,
+        origin_country: string
+        },
+        {
+        id: number,
+        logo_path: string | null,
+        name: string,
+        origin_country: string
         }
     ],
     production_countries: [
         {
-            iso_3166_1: string,
-            name: string
+        iso_3166_1: string,
+        name: string
         }
     ],
     release_date: string,
@@ -36,15 +43,15 @@ export interface IMovieFull extends IMovie {
     runtime: number,
     spoken_languages: [
         {
-            english_name: string,
-            iso_639_1: string,
-            name: string
+        english_name: string,
+        iso_639_1: string,
+        name: string
         }
     ],
     status: string,
     tagline: string,
     title: string,
     video: string | boolean,
-    vote_average: number,
+    vote_average:number,
     vote_count: number
 }
