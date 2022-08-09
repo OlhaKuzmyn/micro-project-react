@@ -8,7 +8,6 @@ interface IState {
     searchmovies:IMovie[],
     totalPages: number,
     genreList: IGenre[],
-    noResults: boolean
 }
 
 const initialState:IState = {
@@ -16,7 +15,6 @@ const initialState:IState = {
     searchmovies:[],
     totalPages: 1,
     genreList: [],
-    noResults: false
 }
 
 const getMovies = createAsyncThunk<IPage, IQuery>(
@@ -47,11 +45,7 @@ const getGenreList = createAsyncThunk<IGenresList, void>(
 const movieSlice = createSlice({
     name: 'movieSlice',
     initialState,
-    reducers: {
-        setNoResults: (state, action) => {
-            state.noResults = action.payload.noResults
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(getMovies.fulfilled,(state, action)=> {
@@ -69,13 +63,12 @@ const movieSlice = createSlice({
     }
 })
 
-const {reducer: movieReducer, actions: {setNoResults}} = movieSlice
+const {reducer: movieReducer} = movieSlice
 
 const movieActions = {
     getMovies,
     getSearchMovies,
-    getGenreList,
-    setNoResults
+    getGenreList
 }
 
 export {
