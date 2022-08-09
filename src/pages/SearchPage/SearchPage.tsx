@@ -19,7 +19,7 @@ const SearchPage: FC = () => {
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
 
-    const {totalPages, noResults} = useAppSelector(state => state.movieReducer)
+    const {totalPages} = useAppSelector(state => state.movieReducer)
 
     let pageNum = searchParams.get('page') ? +searchParams.get('page')! : 1
     let query = searchParams.get('query')
@@ -36,27 +36,23 @@ const SearchPage: FC = () => {
                 <SearchForm/>
                 <Search/>
             </div>
-            {/*{!noResults &&*/}
-            {/*    <div>*/}
-                    {query &&
-                    <div className={css.pages}>
-                        <Link to={{search: `query=${query}&page=${pageNum-1}`}} >
-                            <button className={css.btnPage} disabled={pageNum === 1}>Previous</button>
-                        </Link>
-                        <div>
-                            <form className={css.form} onSubmit={handleSubmit(pageSelect)}>
-                                <div><label>Enter Page number: <input type="number" {...register('page')} className={css.input}/></label></div>
-                                {errors.page && <span>{errors.page.message}</span>}
-                                <button className={css.btnPage}>Go to page</button>
-                            </form>
-                        </div>
-                        <Link to={{search: `query=${query}&page=${pageNum+1}`}} >
-                            <button className={css.btnPage} disabled={pageNum === totalPages}>Next</button>
-                        </Link>
+            {query &&
+                <div className={css.pages}>
+                    <Link to={{search: `query=${query}&page=${pageNum-1}`}} >
+                        <button className={css.btnPage} disabled={pageNum === 1}>Previous</button>
+                    </Link>
+                    <div>
+                        <form className={css.form} onSubmit={handleSubmit(pageSelect)}>
+                            <div><label>Enter Page number: <input type="number" {...register('page')} className={css.input}/></label></div>
+                            {errors.page && <span>{errors.page.message}</span>}
+                            <button className={css.btnPage}>Go to page</button>
+                        </form>
                     </div>
-                    }
-            {/*    </div>*/}
-            {/*}*/}
+                    <Link to={{search: `query=${query}&page=${pageNum+1}`}} >
+                        <button className={css.btnPage} disabled={pageNum === totalPages}>Next</button>
+                    </Link>
+                </div>
+            }
         </div>
     );
 };
